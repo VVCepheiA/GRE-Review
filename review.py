@@ -83,6 +83,7 @@ if __name__ == '__main__':
             stats.iteration = next_iteration
             save(stats)
         except KeyboardInterrupt:
+            stats.cur_line = i
             # save progress
             save(stats)
 
