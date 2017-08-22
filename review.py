@@ -6,6 +6,7 @@ import os
 import time
 from datetime import datetime
 import pickle
+import csv
 
 DATA_DIR = "data/"
 STATS_FILE = DATA_DIR + "checkpoint"
@@ -46,11 +47,11 @@ if __name__ == '__main__':
         try:
             # ignoring previous time...
             start_time = datetime.now()
-            for i, line in enumerate(lines):
+            for i, line in enumerate(csv.reader(lines, delimiter='\t')):
                 if i < stats.cur_line:
                     continue
                 stats.counter += 1
-                word, translation = line.split("\t")
+                word, translation = line
                 print(word)
                 time.sleep(0.3)
                 print(translation)
