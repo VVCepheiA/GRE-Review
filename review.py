@@ -52,7 +52,7 @@ if __name__ == '__main__':
                 stats.counter += 1
                 word, translation = line.split("\t")
                 print(word)
-                time.sleep(0.3)
+                time.sleep(0.8)
                 print(translation)
                 while True:
                     response = input().lower()
@@ -64,7 +64,7 @@ if __name__ == '__main__':
                         break
                     else:
                         print("Invalid response. Please enter Y or y for remember, N or n for forget.")
-                if i % 100 == 9:
+                if i % 100 == 99:
                     print("Remember %d/ %d words" % (stats.remember_counter, stats.counter))
                     delta = datetime.now() - start_time
                     print("Finished in %d minutes" % float(delta.total_seconds()/60))
